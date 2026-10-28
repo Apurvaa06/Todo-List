@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Dashboard To-Do</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="dashboard-container">
+        <!-- Sidebar Navigation -->
+        <nav class="sidebar">
+            <div class="profile-icon" title="Apurva">A</div>
+            <div class="nav-icons">
+                <div class="nav-item"><i class="fas fa-circle" style="font-size: 8px;"></i></div>
+                <div class="nav-item active"><i class="fas fa-caret-up" style="color: var(--orange);"></i></div>
+                <div class="nav-item"><i class="fas fa-square" style="font-size: 10px;"></i></div>
+                <div class="nav-item"><i class="fas fa-play fa-rotate-270" style="font-size: 10px;"></i></div>
+                <div class="nav-item"><i class="fas fa-hexagon" style="font-size: 10px;"></i></div>
+            </div>
+            <div class="settings-icon">
+                <i class="fas fa-cog"></i>
+            </div>
+        </nav>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <header class="header">
+                <h1 id="headerTitle">My Dashboard</h1>
+                <div class="header-actions">
+                    <i class="fas fa-search"></i>
+                    <i class="far fa-moon" id="themeToggle" title="Toggle Dark Mode"></i>
+                </div>
+            </header>
+
+            <div class="bento-grid">
+                <!-- Row 1 -->
+                <div class="card card-light card-open-tasks">
+                    <div class="card-header">
+                        <i class="fas fa-cube"></i>
+                    </div>
+                    <div class="card-body row-layout">
+                        <div class="number" id="openTasksCount">0</div>
+                        <div class="label-group">
+                            <span class="label">Open Tasks</span>
+                            <span class="sub-label orange-text" id="overdueCount">0 Overdue</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card card-light card-done-tasks">
+                    <div class="card-header">
+                        <i class="fas fa-folder"></i>
+                        <span>Done Tasks</span>
+                    </div>
+                    <div class="card-body">
+                        <div class="number-group">
+                            <span class="number" id="doneCount">0</span>
+                            <span class="divider">/</span>
+                            <div class="sub-group">
+                                <span class="sub-number" id="totalCount">0</span>
+                                <span class="sub-text">Total</span>
+                            </div>
+                        </div>
+                        <div class="progress-bar-container">
+                            <div class="progress-bar" id="topProgressBar" style="width: 0%;"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card card-light card-resolved-tasks">
+                    <div class="card-header flex-between">
+                        <div class="header-left">
+                            <i class="fas fa-check-square"></i>
+                            <span>Resolved Tasks by <strong>You</strong></span>
+                        </div>
+                    </div>
+                    <div class="card-body flex-between">
+                        <div class="stats-left">
+                            <div class="number" id="resolvedCount">0</div>
+                            <div class="stats-label">
+                                <span class="green-text" id="resolvedPercent">0%</span><br>
+                                Completion
+                            </div>
+                        </div>
+                        <div class="dot-matrix" id="dotMatrix">
+                            <!-- JS injects 20 dots -->
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Row 2 -->
+                <div class="card card-dark card-unassigned">
+                    <div class="card-body row-layout align-center flex-center">
+                        <div class="number orange-text" id="totalTasksPill">0</div>
+                        <div class="label-group">
+                            <span class="label">Total Tasks</span>
+                            <span class="sub-label" style="font-weight: 400; color: #aaa;">In your planner</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card card-orange card-add-task">
+                    <h2>Add new task<br>to your<br>workflow</h2>
+                    
+                    <div class="add-task-form">
+                        <input type="text" id="taskInput" placeholder="Write a new task..." autocomplete="off">
+                        
+                        <div class="form-row mt-10">
+                            <input type="date" id="taskDueDate" class="date-input" title="Due Date">
+                        </div>
+
+                        <label class="checkbox-label mt-10">
+                            <input type="checkbox" id="highPriorityCheck"> Mark as High Priority
+                        </label>
+                        <button id="addTaskBtn" class="dark-btn mt-10">Add Task <i class="fas fa-plus"></i></button>
+                    </div>
+                </div>
+
+                <div class="card card-light card-all-products">
+                    <div class="circular-chart-container">
+                        <svg viewBox="0 0 36 36" class="circular-chart orange">
+                            <path class="circle-bg" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" />
+                            <path class="circle" id="pieChartCircle" stroke-dasharray="0, 100" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" />
+                        </svg>
+                        <div class="chart-content">
+                            <i class="fas fa-bullseye"></i>
+                            <p>Overall Completion Goal</p>
+                            <div class="number" id="pieChartPercent">0%</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card card-light card-high-priority">
+                    <div class="card-header flex-between">
+                        <i class="fas fa-caret-up"></i>
+                        <div class="icon-circle"><i class="fas fa-arrow-up-right"></i></div>
+                    </div>
+                    <div class="spacer" style="flex:1;"></div>
+                    <p class="card-title-text">High priority tasks</p>
+                    <div class="card-body">
+                        <div class="number-group align-end">
+                            <span class="number huge" id="hpCount">0</span>
+                            <span class="divider">/</span>
+                            <div class="sub-group">
+                                <span class="sub-number" id="hpPercent">0%</span>
+                                <span class="sub-text">Of all tasks</span>
+                            </div>
+                        </div>
+                        <div class="triangle-chart" id="triangleChart">
+                            <div class="triangle dark" style="border-bottom-width: 15px; border-left-width: 30px;"></div>
+                            <div class="triangle dark" style="border-bottom-width: 25px; border-left-width: 40px;"></div>
+                            <div class="triangle dark" style="border-bottom-width: 40px; border-left-width: 50px;"></div>
+                            <div class="triangle dark" style="border-bottom-width: 20px; border-left-width: 30px;"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Row 3 & 4 -->
+                <div class="card card-light card-average-tall">
+                    <div class="card-header flex-between">
+                        <i class="fas fa-chart-bar"></i>
+                        <div class="icon-circle"><i class="fas fa-arrow-up-right"></i></div>
+                    </div>
+                    <p class="card-title-text">Task Activity<br>over recent time</p>
+                    <div class="card-bottom">
+                        <div class="stats-row">
+                            <div class="number huge" id="activityScore">0%</div>
+                            <div class="date-label">
+                                <strong id="todayDate">Today</strong><br>Activity
+                            </div>
+                        </div>
+                        <div class="bar-chart" id="barChart">
+                            <div class="bar" style="height: 20%;"></div>
+                            <div class="bar" style="height: 40%;"></div>
+                            <div class="bar orange" style="height: 80%;"><span class="bar-label" id="barLabel">0%</span></div>
+                            <div class="bar" style="height: 30%;"></div>
+                            <div class="bar" style="height: 50%;"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Task List Area -->
+                <div class="card card-dark card-task-list">
+                    <div class="card-header flex-between">
+                        <div class="header-left">
+                            <i class="fas fa-list"></i>
+                            <span style="margin-left: 10px;">My Task List <small style="color:#aaa; font-weight:normal;" id="dragHint">(Drag to reorder)</small></span>
+                        </div>
+                        <button id="clearDoneBtn" class="clear-done-btn">Clear Done</button>
+                    </div>
+                    <ul class="dashboard-task-list" id="taskList">
+                        <!-- JS injects tasks here -->
+                    </ul>
+                </div>
+            </div>
+        </main>
+    </div>
+    
+    <!-- Toast Notifications Container -->
+    <div id="toastContainer" class="toast-container"></div>
+    <script src="script.js"></script>
+</body>
+</html>
