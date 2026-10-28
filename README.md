@@ -1,64 +1,60 @@
-# 🍱 Bento Dashboard - Modern To-Do & Task Manager
+# Modern To-Do & Task Manager
 
-A sleek, responsive, and interactive To-Do application built with a modern **Bento Grid** dashboard design. Inspired by minimalist productivity tools, it features real-time dynamic visual metrics, dark mode, drag-and-drop reordering, and smart task alerts.
+## Project Overview
 
----
+A responsive and interactive task management web application designed to organize daily activities and monitor productivity. The application features a modern Bento Grid dashboard, dynamic visualizations, task prioritization, and a dark/light theme.
 
-## ✨ Features
+## Features
 
-- **🍱 Bento Grid Architecture**: Clean, card-based modular layout built with CSS Grid.
-- **🌓 Dark / Light Mode**: Instant toggle with theme preference saved in `localStorage`.
-- **📊 Real-time Dynamic Visual Metrics**:
-  - **SVG Circular Progress Chart**: Live percentage display of completed vs. total tasks.
-  - **Dot Matrix Visualization**: Fills dynamically with orange dots as tasks are checked off.
-  - **Priority Triangle Chart**: Visual representation of high-priority workload.
-  - **Activity Bar Chart**: Visualizes recent productivity activity.
-- **✋ Drag & Drop Reordering**: Rearrange and prioritize tasks effortlessly with native HTML5 Drag and Drop.
-- **⏰ Due Dates & Smart Overdue Alerts**:
-  - Highlights overdue tasks in real-time.
-  - Non-intrusive toast notifications notify you of pending or overdue tasks on startup.
-- **⚡ Priority Tagging**: Mark crucial tasks with High Priority indicators.
-- **✏️ Full CRUD Operations**: Seamlessly Add, Edit inline, Mark Complete, and Delete tasks.
-- **💾 LocalStorage Persistence**: All tasks and theme preferences remain saved in the browser. Zero database or backend setup required!
+- **Task Management:** Create, edit, complete, and delete tasks.
+- **Priority Management:** Assign high-priority indicators to important tasks.
+- **Due Dates and Alerts:** Set deadlines, identify overdue tasks, and receive notifications for pending or overdue tasks.
+- **Productivity Dashboard:** Track task completion through circular progress charts, dot matrix visualization, priority charts, and activity bars.
+- **Drag-and-Drop:** Reorder tasks using native HTML5 drag-and-drop functionality.
+- **Theme Switching:** Toggle between dark and light modes with preferences saved in the browser.
+- **Persistent Storage:** Store tasks and theme preferences using the browser's LocalStorage API.
+- **Responsive Interface:** Use a modular Bento Grid layout with CSS Grid and Flexbox.
 
----
+## Technologies Used
 
-## 🛠️ Tech Stack
+- **HTML5:** Semantic structure and drag-and-drop functionality.
+- **CSS3:** Grid, Flexbox, CSS variables, responsive styling, transitions, and animations.
+- **JavaScript (ES6+):** DOM manipulation, task management, event handling, LocalStorage, and dynamic SVG chart calculations.
+- **Font Awesome:** Interface icons.
 
-- **HTML5**: Semantic document layout & native Drag-and-Drop API
-- **CSS3**: CSS Grid (Bento Layout), CSS Variables, Flexbox, smooth transitions & animations
-- **Vanilla JavaScript (ES6+)**: State management, DOM rendering, LocalStorage API, dynamic SVG calculations
-- **Font Awesome**: Minimalist UI iconography
+## Installation and Setup
 
----
-
-## 🚀 Getting Started
-
-### Run Locally:
 1. Clone the repository:
+
    ```bash
    git clone https://github.com/Apurvaa06/Todo-List.git
    ```
-2. Navigate into the folder:
+
+2. Navigate to the project directory:
+
    ```bash
    cd Todo-List
    ```
-3. Open `index.html` in any web browser!
 
----
+3. Open `index.html` in a web browser to run the application.
 
-## 📁 Project Structure
+## Project Structure
 
 ```text
-├── index.html        # Main Bento Dashboard HTML structure
-├── style.css         # CSS Grid Bento styling, animations & themes
-├── script.js         # Task CRUD logic, dynamic charts & drag-drop
-└── README.md         # Project documentation
+Todo-List/
+├── index.html
+├── style.css
+├── script.js
+└── README.md
 ```
 
----
+## Data Storage
 
-## 👩‍💻 Author
+The application uses browser LocalStorage to retain tasks and theme preferences. No backend server or database is required.
 
-Developed by **[Apurva](https://github.com/Apurvaa06)**  
-Feel free to star ⭐ this repository if you found it helpful!
+## Author
+
+**Apurva Gore**
+
+GitHub: https://github.com/Apurvaa06
+
